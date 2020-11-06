@@ -1,0 +1,16 @@
+module std::container {
+	struct Wrapper<T> {
+	private:
+		T value;
+	
+	public:
+		constructor(T value) :
+			value(value) {
+			//
+		}
+	
+		fn unwrap() -> T {
+			return this.value;
+		}
+	}
+}

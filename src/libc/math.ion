@@ -1,0 +1,66 @@
+module libc {
+	# This function takes a pointer to a radix-64 representation, with the first digit the least significant, and returns the corresponding long value. If string contains more than six characters, only the first six are used. If the first six characters of string contain a null terminator, only those characters before the null terminator are used. a64l will scan the string from left to right, with the least significant digit on the left, decoding each character as a 6-bit radix-64 number. The radix-64 representation used by this function is described in the documentation for the l64a function (see section l64a).
+	extern a64l(const i8* string) -> i64;
+	
+	# When you call abort, the message "Abort!" is printed on stdout and the program is aborted by calling raise (SIGABRT) (see section SIGABRT). By default, this causes the CPU registers and the call frame stack dump to be printed, and the program then exits with an exit code of -1 (255). If the SIGABRT signal is caught by a handler that returns, the program exits with an exit code of 1.
+	extern abort() -> void;
+	
+	# The absolute value of value is returned.
+	extern abs(i32 value) -> i32;
+	
+	# TODO: Missing description (complex).
+	extern access(const i8* filename, i32 flags) -> i32;
+	
+	# This function returns the angle in the range [0..Pi] radians whose cosine is x. If the absolute value of x is greater than 1, a domain error occurs, and errno is set to EDOM.
+	extern acos(f8 x) -> f8;
+	
+	# This function returns the inverse hyperbolic cosine of x.
+	extern acosh(f8 x) -> f8;
+	
+	# TODO: Finish implementation (FILE).
+	# This function is a no-op for MS-DOS, but is provided to assist in Unix ports. See section getmntent.
+	extern addmntent() -> i32;
+	
+	# This function causes the signal SIGALRM to be raised in seconds seconds. A value of zero for seconds cancels any pending alarm. If an alarm has previously been set, the new alarm delay will supercede the prior call. Note that signals in DJGPP are deferred when the program is inside a real-mode (e.g., DOS) call or isn't touching its data; see signal, for more details. A misfeature of Windows 9X prevents the timer tick interrupt from being delivered to programs that are in the background (i.e. don't have the focus), even though the program itself might continue to run, if you uncheck the Background: Always suspend property in the Property Sheets. Therefore, alarm will not work in background programs on Windows 9X.
+	extern alarm(ui32 seconds) -> ui32;
+	
+	# Allocate memory that will be automatically released when the current procedure exits. Note that, when compiling with gcc, alloca is a built-in function and not a library call.
+	extern alloca(types::SizeT _size) -> void*;
+	
+	# TODO: Implement (complex).
+	extern asctime() -> i8*;
+	
+	# This function returns the angle in the range [-Pi/2..Pi/2] whose sine is x.
+	extern asin(f8 x) -> f8;
+	
+	# This function returns the inverse hyperbolic sine of the argument x.
+	extern asinh(f8 x) -> f8;
+	
+	# TODO: assert macros.
+	
+	# This function computes the angle, in the range [-Pi/2..Pi/2] radians, whose tangent is x.
+	extern atan(f8 x) -> f8;
+	
+	# This function computes the angle, in the range [-Pi..Pi] radians, whose tangent is y/x. In other words, it computes the angle, in radians, of the vector (x,y) with respect to the +x axis, reckoning the counterclockwise direction as positive, and returning the value in the range [-Pi, Pi].
+	extern atan2(f8 y, f8 x) -> f8;
+	
+	# This function computes the inverse hyperbolic tangent of x.
+	extern atanh(f8 x) -> f8;
+	
+	# TODO: atexit();
+	
+	# Convert as much of the string as possible to an equivalent double precision real number. This function is almost like strtod(string, NULL) (see section strtod).
+	extern atof(const i8* string) -> f8;
+	
+	# Convert as much of the string as possible to an equivalent integer value. This function is almost like (int)strtol(string, NULL, 10) (see section strtol).
+	extern atoi(const i8* string) -> i32;
+	
+	# Convert as much of the string as possible to an equivalent long integer value. This function is almost like strtol(string, NULL, 10) (see section strtol).
+	extern atol(const i8* string) -> i64;
+	
+	# TODO: ...
+
+	# This function computes x^y, x raised to
+	# the power y.
+	extern pow(f8 x, f8 y) -> f8;
+}

@@ -1,0 +1,18 @@
+module std::math {
+	concept MathOperable {
+		operator +() -> this;
+		
+		operator -() -> this;
+		
+		operator *() -> this;
+		
+		operator /() -> this;
+		
+		operator %() -> this;
+	}
+	
+	# TODO: base and exponent aren't f8 (which libc::pow requires).
+	fn raiseToExponent<T : MathOperable>(T base, i128 exponent) -> T {
+		return libc::pow(base, exponent);
+	}
+}

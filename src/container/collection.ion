@@ -1,0 +1,38 @@
+import std.general;
+import std.container;
+
+module std::container {
+	struct Collection<T> extends Wrapper<T[]> {
+		constructor() :
+			super({}) {}
+		
+		# Resize the underlying array to have enough space to append
+		# new items.
+		fn reserve(Index size) -> void {
+			intrinsic::arrayResize(
+				this.value,
+				intrinsic::arraySize(this.value) + size
+			);
+		}
+	
+		# Append an item to the end of the collection.
+		fn append(T item) -> void {
+			# TODO: Only resize if no reservation was previously made.
+			intrinsic::arrayResize(this.value, this.size++);
+			
+			intrinsic::arrayAppend(this.value, item);
+		}
+	
+		# Determine whether the collection contains a certain
+		# item.
+		fn contains(T item) -> bool {
+			for (Index i = 0; i < intrinsic::size(this.value); i++) {
+				if (this.value[i] == item) {
+					return true;
+				}
+			}
+			
+			return false;
+		}
+	}
+}

@@ -1,0 +1,10 @@
+import std.general.index;
+import std.container.wrapper;
+
+module std::container {
+	struct Array<T> {
+		operator [](Index index) {
+			# TODO
+		}
+	}
+}

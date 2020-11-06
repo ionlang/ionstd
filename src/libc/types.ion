@@ -1,0 +1,3 @@
+module libc::types {
+	alias SizeT = ui128;
+}
