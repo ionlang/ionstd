@@ -1,4 +1,4 @@
-module std::general {
+module std {
 export:
 	type Index = ui64;
 }

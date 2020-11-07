@@ -1,0 +1,44 @@
+import std;
+
+module std {
+	struct String {
+		i8* rawString;
+		
+		constructor(i8* rawString) :
+			rawString(rawString) { }
+			
+		operator i8*() -> i8* {
+			return this.rawString;
+		}
+			
+		@noDiscard
+		fn substring(Index from, Index to) -> String {
+			# TODO
+		}
+		
+		@noDiscard
+		fn startsWith(String string) -> bool {
+			# TODO
+		}
+		
+		@noDiscard
+		fn endsWith(String string) -> bool {
+			# TODO
+		}
+		
+		@noDiscard
+		fn getLength() -> Index {
+			# TODO
+		}
+		
+		@noDiscard
+		fn toUppercase() -> String {
+			# TODO
+		}
+		
+		@noDiscard
+		fn toLowercase() -> String {
+			# TODO
+		}
+	}
+}

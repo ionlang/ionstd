@@ -1,0 +1,19 @@
+import libc::io;
+
+module std {
+	concept RawStringConvertible {
+		operator (i8*)() -> i8*;
+	}
+
+	fn print<RawStringConvertible T>(T t) -> void {
+		libc::io::puts((i8*)t);
+	}
+	
+	fn readCharacter() -> i8 {
+		# TODO
+	}
+	
+	fn readLine() -> std::String {
+		# TODO
+	}
+}

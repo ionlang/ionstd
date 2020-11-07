@@ -1,4 +1,4 @@
-import std::general;
+import std;
 import std::container;
 
 module std::container {
