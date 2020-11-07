@@ -1,3 +1,4 @@
 module std::general {
-	alias Index u128;
+export:
+	type Index = ui64;
 }

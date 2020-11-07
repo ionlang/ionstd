@@ -1,4 +1,5 @@
 module std::container {
+export:
 	struct Wrapper<T> {
 	private:
 		T value;

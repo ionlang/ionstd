@@ -2,6 +2,7 @@ import std::general;
 import std::container;
 
 module std::container {
+export:
 	# A dynamically sized vector of elements.
 	struct Collection<type T> extends Wrapper<T[]> {
 		# How many extra items to allocate for better
