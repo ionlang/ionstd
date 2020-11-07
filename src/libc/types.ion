@@ -1,3 +1,6 @@
 module libc::types {
-	alias SizeT = ui128;
+export:
+	type SizeT = ui64;
+	
+	type File = opaque;
 }

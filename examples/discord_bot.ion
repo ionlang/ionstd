@@ -1,0 +1,53 @@
+import std::general;
+import std::events;
+import discord;
+
+# ...
+module std::events {
+	struct Event<T...> {
+		delegate Handler(T...) -> void;
+	
+		std::Vector<Handler> handlers;
+		
+		operator +=(Handler handler) {
+			this.handlers.append(handler);
+		}
+		
+		constructor() :
+			handlers({}) { }
+	}
+}
+
+# ...
+module discord {
+	struct Message {
+		i8* content;
+	}
+	
+	struct Bot {
+		const std::string token;
+	
+		std::Event<discord::Message> onMessage;
+		
+		constructor(std::string token) :
+			token(token) { }
+	}
+}
+# ...
+
+module atlas::discord_bot {
+	fn main(i32 argc) -> i32 {
+		let bot = discord::Bot{
+			std::general::Environment.getVariable("BOT_TOKEN")
+				? throw "Token environment variable is unset"
+		};
+		
+		bot.onMessage += (discord::Message msg) -> void {
+			if (msg.content == ".hello") {
+				msg.sender.reply("hello world!");
+			}
+		};
+		
+		return std::general::ExitCode.Success;
+	}
+}

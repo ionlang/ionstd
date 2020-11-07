@@ -1,8 +1,9 @@
-import std.general.index;
-import std.container.wrapper;
+import std::general;
+import std::container;
 
 module std::container {
-	struct Array<T> {
+	struct Array<type TData, i32 TLength>
+		extends Wrapper<TData[TLength]> {
 		operator [](Index index) {
 			# TODO
 		}
