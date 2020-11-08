@@ -4,9 +4,15 @@ import std::container;
 module std::container {
 export:
 	struct Array<type TData, i32 TLength>
-		extends Wrapper<TData[TLength]> {
+		extends Wrapper<TData[TLength]>
+		implements ILinearCollection<TData> {
+		
+		constructor() { }
+		
 		operator [](Index index) {
 			# TODO
 		}
+		
+		# TODO
 	}
 }

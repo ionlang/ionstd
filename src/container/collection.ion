@@ -4,7 +4,10 @@ import std::container;
 module std::container {
 export:
 	# A dynamically sized vector of elements.
-	struct Collection<type T> extends Wrapper<T[]> {
+	struct Collection<type T>
+		extends Wrapper<T[]>
+		implements ILinearCollection<T> {
+		
 		# How many extra items to allocate for better
 		# efficiency when resizing the underlying array.
 		Index grace;
@@ -24,7 +27,7 @@ export:
 					+ this.grace
 			);
 		}
-	
+		
 		# Append an item to the end of the collection.
 		fn append(T item) -> void {
 			# TODO: Only resize if no reservation was previously made.
@@ -35,7 +38,7 @@ export:
 	
 		# Determine whether the collection contains a certain
 		# item.
-		@noDiscard
+		@NoDiscard
 		fn contains(T item) -> bool {		
 			for (Index i = 0; i < intrinsic::size(this.value); i++) {
 				if (this.value[i] == item) {
@@ -46,17 +49,17 @@ export:
 			return false;
 		}
 		
-		@noDiscard
+		@NoDiscard
 		fn getSize() -> Index {
 			return intrinsic::array::size(this.value) - this.grace;
 		}
 		
-		@noDiscard
+		@NoDiscard
 		fn isEmpty() -> bool {
 			return this.getSize() == (Index)0;
 		}
 		
-		@noDiscard
+		@NoDiscard
 		fn findIndexOf(T item) -> Index? {
 			for (Index i = 0; i < intrinsic::array::size(this.value); i++) {
 				if (this.value[i] == item) {

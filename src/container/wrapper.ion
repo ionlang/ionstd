@@ -1,6 +1,6 @@
 module std::container {
 export:
-	struct Wrapper<T> {
+	struct Wrapper<type T> {
 	private:
 		T value;
 	
