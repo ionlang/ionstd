@@ -1,7 +1,6 @@
 import libc::types;
 
 module libc::math {
-export:
 	# TODO: Other stuff than math functions are included.
 
 	# This function takes a pointer to a radix-64 representation, with the first digit the least significant, and returns the corresponding long value. If string contains more than six characters, only the first six are used. If the first six characters of string contain a null terminator, only those characters before the null terminator are used. a64l will scan the string from left to right, with the least significant digit on the left, decoding each character as a 6-bit radix-64 number. The radix-64 representation used by this function is described in the documentation for the l64a function (see section l64a).

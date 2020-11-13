@@ -1,5 +1,4 @@
 module libc::types {
-export:
 	type SizeT = ui64;
 	
 	type File = opaque;

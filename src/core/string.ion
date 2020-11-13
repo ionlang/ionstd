@@ -10,25 +10,30 @@ module std {
 		operator i8*() -> i8* {
 			return this.rawString;
 		}
-			
-		@noDiscard
+		
+		@NoDiscard
 		fn substring(Index from, Index to) -> String {
 			# TODO
 		}
 		
-		@noDiscard
+		@NoDiscard
 		fn startsWith(String string) -> bool {
 			# TODO
 		}
 		
-		@noDiscard
+		@NoDiscard
 		fn endsWith(String string) -> bool {
 			# TODO
 		}
 		
-		@noDiscard
+		@NoDiscard
 		fn getLength() -> Index {
 			# TODO
+		}
+		
+		@NoDiscard
+		fn isEmpty() -> bool {
+			return this.getLength() == 0;
 		}
 		
 		@noDiscard
@@ -36,7 +41,7 @@ module std {
 			# TODO
 		}
 		
-		@noDiscard
+		@NoDiscard
 		fn toLowercase() -> String {
 			# TODO
 		}

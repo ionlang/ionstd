@@ -1,0 +1,63 @@
+import std::container;
+
+module std::container {
+	struct Optional<type T> extends Wrapper<T?> {
+		constructor(T? value)
+			: super(value) { }
+	
+		@NoException
+		operator =(T? value) -> void {
+			this.setValue(value);
+		}
+	
+		@NoDiscard
+		@NoException
+		fn hasValue() -> bool {
+			# TODO
+		}
+		
+		@NoDiscard
+		@NoException
+		fn getValueOr(T alternativeValue) -> T {
+			return this.hasValue()
+				? this.unwrap()
+				: alternativeValue;
+		}
+		
+		@NoDiscard
+		@NoException
+		fn getValueOrNull() -> T? {
+			return this.unwrap();
+		}
+		
+		@NoDiscard
+		fn getValue() -> T {
+			T? value = this.unwrap();
+			
+			if (value == null) {
+				throw Exception{"Value is null"};
+			}
+			
+			return value!;
+		}
+		
+		@NoException
+		fn setValue(T? value) -> void {
+			this.value = value;
+		}
+		
+		# Attempt to clear the stored value. Returns
+		# true if a value was stored and cleared, false
+		# otherwise.
+		@NoException
+		fn clearValue() -> bool {
+			if (!this.hasValue()) {
+				return false;
+			}
+			
+			this.setValue(null);
+			
+			return true;
+		}
+	}
+}

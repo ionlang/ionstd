@@ -1,0 +1,9 @@
+module std {
+	struct Exception {
+		i8* message;
+	}
+	
+	struct PendingException extends Exception {
+		# TODO: How to initialize parent?
+	}
+}

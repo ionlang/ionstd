@@ -1,0 +1,12 @@
+module std {
+	struct abstract Iterator<type T> {
+		abstract fn begin() -> T;
+		
+		abstract fn end() -> T;
+	
+		abstract fn next() -> T;
+		
+		@NoDiscard
+		abstract fn hasNext() -> bool;
+	}
+}

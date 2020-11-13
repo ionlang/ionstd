@@ -1,0 +1,11 @@
+module std::container {
+	struct abstract SizedContainer {
+		@NoDiscard
+		abstract fn getSize() -> Index;
+		
+		@NoDiscard
+		virtual fn isEmpty() -> bool {
+			return this.getSize() == 0;
+		}
+	}
+}

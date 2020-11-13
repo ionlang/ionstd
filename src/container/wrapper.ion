@@ -10,6 +10,7 @@ export:
 			//
 		}
 	
+		@NoException
 		fn unwrap() -> T {
 			return this.value;
 		}

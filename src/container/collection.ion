@@ -2,11 +2,9 @@ import std;
 import std::container;
 
 module std::container {
-export:
 	# A dynamically sized vector of elements.
 	struct Collection<type T>
-		extends Wrapper<T[]>
-		implements ILinearCollection<T> {
+		extends Wrapper<T[]>, LinearCollection<T> {
 		
 		# How many extra items to allocate for better
 		# efficiency when resizing the underlying array.

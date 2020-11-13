@@ -1,14 +1,9 @@
 import std;
 
 module std::container {
-	interface ILinearCollection<type T> {
+	struct abstract LinearCollection<type T>
+		extends SizedContainer {
 		@NoDiscard
 		fn contains(T item) -> bool;
-		
-		@NoDiscard
-		fn getSize() -> Index;
-		
-		@NoDiscard
-		fn isEmpty() -> bool;
 	}
 }

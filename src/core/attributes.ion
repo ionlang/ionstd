@@ -2,13 +2,13 @@ module std {
 	# Specifies to the compiler to issue an error if
 	# the value being returned by the attached function
 	# is discarded, or unused.
-	attribute NoDiscard attaches fn, operator, delegate { }
+	attribute NoDiscard -> fn, operator, delegate { }
 	
 	# Specifies that the attachment does not throw
 	# exceptions under any circumstances. The compiler will
 	# analyze the attached function, and if any throw statement
 	# is present within the function or any of its calls.
-	attribute NoException attaches fn, operator, delegate { }
+	attribute NoException -> fn, operator, delegate { }
 	
 	# Specifies that the attachment has been deprecated, and
 	# should be replaced with a suitable alternative or not used.
